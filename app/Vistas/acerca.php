@@ -3,7 +3,7 @@ use function App\e;
 
 $titulo = 'Arquitectura e IA';
 $comp = [
-    ['C1', 'Interfaz web por rol', 'PHP 8.3 + HTML/CSS/JS sin dependencias externas', 'Tablero, detalle, carga, cierre, informe y vista de Gerencia. Planeamiento / Producción / Gerencia (solo lectura).', 'public/index.php, app/Vistas'],
+    ['C1', 'Interfaz web por rol', 'PHP 8.3 + HTML/CSS/JS sin dependencias externas', 'Tablero, detalle, carga, cierre, informe y vista de Gerencia. Planeamiento / Producción / Gerencia (solo lectura). Acceso con código de equipo y aprobación de Gerencia; bloqueo por intentos fallidos.', 'public/index.php, app/Vistas, app/Accesos.php'],
     ['C2', 'Carga e importación', 'Lector CSV y XLSX propio (ZipArchive + SimpleXML)', 'Propone mapeo por alias, valida tipos y muestra el análisis antes de guardar.', 'app/Importador.php'],
     ['C3', 'Base de datos', 'MySQL 8.4 en FlyEnv (PDO, transacciones)', 'Obras, cortes, actividades, partes diarios, causas, auditoría. Línea base separada del fin vigente.', 'database/schema.sql, app/Repo.php'],
     ['C4', 'Motor determinístico', 'Reglas en PHP con calendario laboral y feriados', 'Restante, duración, fecha probable, margen, atraso, dependencias FC, semáforo y PPC.', 'app/Motor.php'],
@@ -59,6 +59,6 @@ $flujo = ['Planeamiento sube Excel/CSV', 'C2 propone mapeo y valida', 'Persona c
     <li>Dependencias solo fin-a-inicio sin desfase; no calcula ruta crítica contractual ni nivelación de recursos.</li>
     <li>Productividad constante (rendimiento declarado); no estima probabilidades de atraso.</li>
     <li>El clasificador local prioriza no equivocarse: en la prueba ciega se abstiene en muchas notas y las deriva a la persona.</li>
-    <li>Autenticación local básica pensada para la demo; no hay SSO, cifrado de respaldo ni auditoría de seguridad de producción.</li>
+    <li>Acceso controlado (código de equipo, aprobación de Gerencia, bloqueo por intentos, suspensión inmediata), pero sin SSO, segundo factor (2FA) ni cifrado de respaldos.</li>
   </ul>
 </section>
