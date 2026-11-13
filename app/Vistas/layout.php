@@ -11,6 +11,7 @@ $ico = [
     'evaluacion' => '<path d="M4 20h16v2H4zM6 10h3v8H6zm5-6h3v14h-3zm5 9h3v5h-3z"/>',
     'auditoria' => '<path d="M13 3a9 9 0 00-9 9H1l4 4 4-4H6a7 7 0 112.05 4.95l-1.42 1.42A9 9 0 1013 3zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z"/>',
     'telegram' => '<path d="M21.9 4.3L18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/>',
+    'accesos' => '<path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5zm0 6a3 3 0 110 6 3 3 0 010-6zm0 13.4c-2.3-.9-4.2-2.6-5.2-4.8.1-1.7 3.5-2.6 5.2-2.6s5.1.9 5.2 2.6c-1 2.2-2.9 3.9-5.2 4.8z"/>',
     'acerca' => '<path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 100 20 10 10 0 000-20z"/>',
 ];
 $menu = [
@@ -23,6 +24,7 @@ $menu = [
     ['evaluacion', 'Pruebas y resultados', ['planeamiento', 'produccion', 'gerencia']],
     ['auditoria', 'Auditoría', ['planeamiento', 'gerencia']],
     ['telegram', 'Bot de Telegram', ['planeamiento', 'produccion', 'gerencia']],
+    ['accesos', 'Accesos del equipo', ['gerencia']],
     ['acerca', 'Arquitectura e IA', ['planeamiento', 'produccion', 'gerencia']],
 ];
 $ini = implode('', array_map(fn($w) => mb_substr($w, 0, 1), array_slice(explode(' ', $usuario['nombre']), 0, 2)));
@@ -48,6 +50,7 @@ $ini = implode('', array_map(fn($w) => mb_substr($w, 0, 1), array_slice(explode(
           if (!in_array($usuario['rol'], $m[2], true)) continue; ?>
         <a href="<?= Web::url($m[0]) ?>" class="<?= $pagina === $m[0] ? 'activo' : '' ?>">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><?= $ico[$m[0]] ?></svg><?= e($m[1]) ?>
+          <?php if ($m[0] === 'accesos' && ($np = count(App\Accesos::pendientes()))): ?><span class="insignia"><?= $np ?></span><?php endif; ?>
         </a>
       <?php endforeach; ?>
     </nav>

@@ -1,5 +1,5 @@
 {
-    "generado": "2026-11-11 01:06",
+    "generado": "2026-11-13 11:49",
     "aprobados": 27,
     "total": 27,
     "casos": [
@@ -7,7 +7,7 @@
             "id": "B1",
             "nombre": "Chat no vinculado no recibe datos",
             "ok": true,
-            "obtenido": "🔒 Este chat no está vinculado a AlertaPlan IA.\n\nEn la web: menú → Telegram, genera un código y envíame:\n\/vincular CODIGO"
+            "obtenido": "🔒 Este chat no está vinculado a AlertaPlan IA.\n\nEn la web: menú → Bot de Telegram, genera un código y envíame:\n\/vincular CODIGO\n\n¿Aún no tienes cuenta? En la pa"
         },
         {
             "id": "B2",
@@ -49,7 +49,7 @@
             "id": "B8",
             "nombre": "\/informe envía el informe como archivo autocontenido",
             "ok": true,
-            "obtenido": "Informe_TGT_S46_BORRADOR.html · 47828 B"
+            "obtenido": "Informe_TGT_S46_BORRADOR.html · 48030 B"
         },
         {
             "id": "B9",

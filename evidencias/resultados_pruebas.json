@@ -1,8 +1,8 @@
 {
-    "generado": "2026-11-11 00:46",
+    "generado": "2026-11-13 11:49",
     "entorno": {
-        "php": "8.3.32",
-        "bd": "8.4.11",
+        "php": "8.3.6",
+        "bd": "10.11.14-MariaDB-0ubuntu0.24.04.1",
         "ia": "Clasificador local Naive Bayes (sin internet)"
     },
     "motor": {
@@ -248,7 +248,7 @@
                 "id": "E10",
                 "nombre": "Aprobación congela el corte, calcula PPC y guarda snapshot",
                 "esperado": "aprobado · PPC · snapshot",
-                "obtenido": "aprobado · PPC 62.5% (5\/8) · snapshot 14233 B",
+                "obtenido": "aprobado · PPC 62.5% (5\/8) · snapshot 14225 B",
                 "ok": true
             },
             {
@@ -278,7 +278,7 @@
     },
     "rendimiento": {
         "actividades": 5000,
-        "ms": 952.8
+        "ms": 2593.4
     },
     "ia": {
         "validacion_llm": {

@@ -13,6 +13,9 @@ IA_MODO=${IA_MODO:-auto}
 ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
 ANTHROPIC_MODEL=${ANTHROPIC_MODEL:-claude-haiku-4-5}
 TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+TELEGRAM_BOT_USUARIO=${TELEGRAM_BOT_USUARIO:-}
+DEMO_CLAVE=${DEMO_CLAVE:-}
+CONFIAR_PROXY=${CONFIAR_PROXY:-}
 ENV
 chmod 640 .env && chown root:www-data .env
 mkdir -p storage && chown -R www-data:www-data storage

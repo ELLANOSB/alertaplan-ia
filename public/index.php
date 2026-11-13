@@ -73,17 +73,82 @@ function vista(string $nombre, array $datos = []): void
 try {
     switch ($p) {
         case 'login':
+            if (Web::usuario() && !$post) {
+                Web::ir('tablero');
+            }
             if ($post) {
                 Web::verificarCsrf();
-                if (Web::login((string)$_POST['email'], (string)$_POST['clave'])) {
+                $err = Web::login((string)($_POST['email'] ?? ''), (string)($_POST['clave'] ?? ''));
+                if ($err === null) {
                     Web::ir(Web::usuario()['rol'] === 'gerencia' ? 'gerencia' : 'tablero');
                 }
-                Web::flash('error', 'Correo o contraseña incorrectos.');
+                Web::flash('error', $err);
+                $_SESSION['login_email'] = mb_substr((string)($_POST['email'] ?? ''), 0, 160);
                 Web::ir('login');
             }
             $mensajes = Web::mensajes();
+            $modo = 'login';
+            $previo = ['email' => $_SESSION['login_email'] ?? ''];
+            unset($_SESSION['login_email']);
             require __DIR__ . '/../app/Vistas/login.php';
             exit;
+
+        case 'registro':
+            if ($post) {
+                Web::verificarCsrf();
+                $r = App\Accesos::registrar($_POST, Web::ip());
+                if ($r['ok']) {
+                    unset($_SESSION['registro']);
+                    Web::ir('registro', ['enviado' => 1]);
+                }
+                Web::flash('error', $r['error']);
+                $_SESSION['registro'] = array_intersect_key($_POST, array_flip(['nombre', 'email', 'cargo', 'rol', 'motivo']));
+                Web::ir('registro');
+            }
+            $mensajes = Web::mensajes();
+            $modo = isset($_GET['enviado']) ? 'enviado' : 'registro';
+            $previo = $_SESSION['registro'] ?? [];
+            unset($_SESSION['registro']);
+            require __DIR__ . '/../app/Vistas/login.php';
+            exit;
+
+        case 'accesos':
+            $u = Web::requiere(['gerencia']);
+            $codigoNuevo = null;
+            if ($post) {
+                Web::verificarCsrf();
+                $id = (int)($_POST['id'] ?? 0);
+                $gid = (int)$u['id'];
+                switch ((string)($_POST['accion'] ?? '')) {
+                    case 'codigo':
+                        $codigoNuevo = App\Accesos::crearInvitacion($gid, (int)($_POST['dias'] ?? 7), (int)($_POST['usos'] ?? 10));
+                        break;
+                    case 'revocar':
+                        App\Accesos::revocarInvitacion($id, $gid);
+                        Web::flash('ok', 'Código de equipo revocado.');
+                        Web::ir('accesos');
+                    case 'aprobar':
+                        App\Accesos::aprobar($id, (string)$_POST['rol'], (string)($_POST['comentario'] ?? ''), $gid);
+                        Web::flash('ok', 'Acceso aprobado. La persona ya puede ingresar.');
+                        Web::ir('accesos');
+                    case 'rechazar':
+                        App\Accesos::rechazar($id, (string)($_POST['comentario'] ?? ''), $gid);
+                        Web::flash('ok', 'Solicitud rechazada.');
+                        Web::ir('accesos');
+                    case 'suspender':
+                        App\Accesos::suspender($id, (string)($_POST['comentario'] ?? ''), $gid);
+                        Web::flash('ok', 'Cuenta suspendida: pierde el acceso web y el bot de Telegram de inmediato.');
+                        Web::ir('accesos');
+                    case 'reactivar':
+                        App\Accesos::reactivar($id, $gid);
+                        Web::flash('ok', 'Cuenta reactivada.');
+                        Web::ir('accesos');
+                    default:
+                        throw new RuntimeException('Acción no reconocida.');
+                }
+            }
+            vista('accesos', ['codigoNuevo' => $codigoNuevo, 'pendientes' => App\Accesos::pendientes(), 'equipo' => App\Accesos::equipo(), 'invitaciones' => App\Accesos::invitaciones()]);
+            break;
 
         case 'salir':
             if (Web::usuario()) {
@@ -266,7 +331,12 @@ try {
             Web::requiere();
             $archivo = __DIR__ . '/../evidencias/resultados_pruebas.json';
             $res = is_file($archivo) ? json_decode((string)file_get_contents($archivo), true) : null;
-            vista('evaluacion', ['res' => $res]);
+            $extra = [];
+            foreach (['telegram' => 'resultados_telegram.json', 'accesos' => 'resultados_accesos.json'] as $k => $f) {
+                $ruta = __DIR__ . '/../evidencias/' . $f;
+                $extra[$k] = is_file($ruta) ? json_decode((string)file_get_contents($ruta), true) : null;
+            }
+            vista('evaluacion', ['res' => $res, 'extra' => $extra]);
             break;
 
         case 'auditoria':
@@ -297,7 +367,7 @@ try {
             }
             $st = db()->prepare('SELECT * FROM telegram_vinculos WHERE usuario_id = ? ORDER BY creado_en DESC');
             $st->execute([$u['id']]);
-            vista('telegram', ['codigo' => $codigo, 'chats' => $st->fetchAll(), 'bot' => $_SESSION['tg_bot'] ?? '']);
+            vista('telegram', ['codigo' => $codigo, 'chats' => $st->fetchAll(), 'bot' => ($_SESSION['tg_bot'] ?? '') ?: ltrim((string)env('TELEGRAM_BOT_USUARIO', ''), '@')]);
             break;
 
         case 'acerca':

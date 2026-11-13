@@ -14,13 +14,37 @@ final class Web
         'gerencia' => 'Gerencia (solo lectura)',
     ];
 
+    public const INACTIVIDAD = 7200; // segundos sin actividad antes de cerrar la sesión
+
+    public static function https(): bool
+    {
+        return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || (env('CONFIAR_PROXY', '') === '1' && strtolower((string)($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')) === 'https');
+    }
+
+    /** IP del cliente. Detrás de un proxy de confianza (Railway) se toma la que informa el proxy. */
+    public static function ip(): string
+    {
+        if (env('CONFIAR_PROXY', '') === '1' && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            return trim(explode(',', (string)$_SERVER['HTTP_X_FORWARDED_FOR'])[0]);
+        }
+        return (string)($_SERVER['REMOTE_ADDR'] ?? 'cli');
+    }
+
     public static function iniciarSesion(): void
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
+            ini_set('session.use_strict_mode', '1');
             session_name('alertaplan');
-            session_set_cookie_params(['httponly' => true, 'samesite' => 'Lax']);
+            session_set_cookie_params(['httponly' => true, 'samesite' => 'Lax', 'secure' => self::https()]);
             session_start();
         }
+        if (isset($_SESSION['usuario']) && time() - (int)($_SESSION['visto'] ?? 0) > self::INACTIVIDAD) {
+            $_SESSION = [];
+            session_regenerate_id(true);
+            self::flash('error', 'Tu sesión se cerró por inactividad. Ingresa nuevamente.');
+        }
+        $_SESSION['visto'] = time();
     }
 
     public static function usuario(): ?array
@@ -28,27 +52,34 @@ final class Web
         return $_SESSION['usuario'] ?? null;
     }
 
-    public static function login(string $email, string $clave): bool
+    /** @return string|null mensaje de error, o null si ingresó */
+    public static function login(string $email, string $clave): ?string
     {
-        $st = db()->prepare('SELECT * FROM usuarios WHERE email = ? AND activo = 1');
-        $st->execute([mb_strtolower(trim($email))]);
-        $u = $st->fetch();
-        if (!$u || !password_verify($clave, $u['password_hash'])) {
-            return false;
+        $r = Accesos::autenticar($email, $clave, self::ip());
+        if (!$r['ok']) {
+            return $r['error'];
         }
         session_regenerate_id(true);
-        unset($u['password_hash']);
-        $_SESSION['usuario'] = $u;
-        Repo::auditar((int)$u['id'], 'inicio_sesion', 'usuario', (int)$u['id'], null);
-        return true;
+        $_SESSION['usuario'] = $r['usuario'];
+        $_SESSION['csrf'] = bin2hex(random_bytes(16));
+        return null;
     }
 
     public static function requiere(array $roles = []): array
     {
-        $u = self::usuario();
-        if (!$u) {
+        $s = self::usuario();
+        if (!$s) {
             self::ir('login');
         }
+        // la cuenta se revalida en cada pedido: una suspensión o cambio de rol aplica de inmediato
+        $u = Accesos::vigente((int)$s['id']);
+        if (!$u) {
+            $_SESSION = [];
+            session_regenerate_id(true);
+            self::flash('error', 'Tu cuenta ya no está activa. Consulta con Gerencia.');
+            self::ir('login');
+        }
+        $_SESSION['usuario'] = $u;
         if ($roles && !in_array($u['rol'], $roles, true)) {
             http_response_code(403);
             self::flash('error', 'Tu rol (' . self::ROLES[$u['rol']] . ') no puede realizar esta acción.');

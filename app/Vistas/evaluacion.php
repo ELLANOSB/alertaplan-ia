@@ -19,10 +19,23 @@ $tarjeta = function (string $t, array $x) {
   </div>
 </div>
 
-<section class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<?php
+$suites = [$m, $f, $ia['validacion_llm']];
+foreach (['telegram', 'accesos'] as $k) {
+    if (!empty($extra[$k])) {
+        $suites[] = $extra[$k];
+    }
+}
+$totAp = array_sum(array_map(fn($x) => (int)$x['aprobados'], $suites));
+$tot = array_sum(array_map(fn($x) => (int)$x['total'], $suites));
+?>
+<div class="aviso <?= $totAp === $tot ? 'ok' : 'error' ?>"><span><b><?= $totAp ?>/<?= $tot ?> pruebas automatizadas aprobadas</b> · sistema (<code>tests/pruebas.php</code>), bot de Telegram (<code>tests/pruebas_telegram.php</code>) y control de acceso (<code>tests/pruebas_accesos.php</code>).</span></div>
+<section class="kpis" style="grid-template-columns:repeat(3,minmax(0,1fr))">
   <?= $tarjeta('Casos del motor (T1–T8 y más)', $m) ?>
   <?= $tarjeta('Flujo extremo a extremo (BD)', $f) ?>
   <?= $tarjeta('Validación de salidas LLM', $ia['validacion_llm']) ?>
+  <?= !empty($extra['telegram']) ? $tarjeta('Bot de Telegram (cliente simulado)', $extra['telegram']) : '' ?>
+  <?= !empty($extra['accesos']) ? $tarjeta('Control de acceso y registro', $extra['accesos']) : '' ?>
   <div class="kpi"><div class="eti">Rendimiento del motor</div><div class="val"><?= num($res['rendimiento']['ms'], 0) ?><small> ms</small></div><div class="det"><?= num($res['rendimiento']['actividades']) ?> actividades encadenadas</div></div>
 </section>
 

@@ -3,7 +3,7 @@
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS telegram_cargas, telegram_codigos, telegram_vinculos, auditoria, causas, avances_diarios, actividades, cortes, obras, usuarios;
+DROP TABLE IF EXISTS intentos_acceso, invitaciones, telegram_cargas, telegram_codigos, telegram_vinculos, auditoria, causas, avances_diarios, actividades, cortes, obras, usuarios;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE usuarios (
@@ -14,6 +14,17 @@ CREATE TABLE usuarios (
   rol ENUM('planeamiento','produccion','gerencia') NOT NULL,
   password_hash VARCHAR(255) NOT NULL,
   activo TINYINT(1) NOT NULL DEFAULT 1,
+  -- Control de acceso: las cuentas registradas por el formulario quedan 'pendiente' hasta que Gerencia las aprueba
+  estado ENUM('activo','pendiente','rechazado','suspendido') NOT NULL DEFAULT 'activo',
+  rol_solicitado ENUM('planeamiento','produccion','gerencia') NULL,
+  motivo_solicitud VARCHAR(300) NULL,
+  invitacion_id INT NULL,
+  revisado_por INT NULL,
+  revisado_en DATETIME NULL,
+  comentario_revision VARCHAR(300) NULL,
+  intentos_fallidos SMALLINT NOT NULL DEFAULT 0,
+  bloqueado_hasta DATETIME NULL,
+  ultimo_ingreso DATETIME NULL,
   creado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -170,3 +181,26 @@ CREATE TABLE telegram_cargas (
   estado ENUM('pendiente','importada','cancelada') NOT NULL DEFAULT 'pendiente',
   creado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Control de acceso: códigos de equipo (se guarda solo el hash) y registro de intentos para limitar fuerza bruta
+CREATE TABLE invitaciones (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  codigo_hash CHAR(64) NOT NULL UNIQUE,
+  pista VARCHAR(8) NOT NULL,
+  creado_por INT NOT NULL,
+  creado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  vence_en DATETIME NOT NULL,
+  max_usos SMALLINT NOT NULL DEFAULT 10,
+  usos SMALLINT NOT NULL DEFAULT 0,
+  activo TINYINT(1) NOT NULL DEFAULT 1,
+  CONSTRAINT fk_inv_usr FOREIGN KEY (creado_por) REFERENCES usuarios(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE intentos_acceso (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  tipo VARCHAR(20) NOT NULL,
+  clave CHAR(64) NOT NULL,
+  creado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY ix_int (tipo, clave, creado_en)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

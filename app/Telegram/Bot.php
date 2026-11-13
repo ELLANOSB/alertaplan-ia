@@ -51,7 +51,7 @@ final class Bot
             }
             $usr = $this->usuario($chat);
             if (!$usr) {
-                $this->tg->enviar($chat, "🔒 Este chat no está vinculado a AlertaPlan IA.\n\nEn la web: <b>menú → Telegram</b>, genera un código y envíame:\n<code>/vincular CODIGO</code>");
+                $this->tg->enviar($chat, "🔒 Este chat no está vinculado a AlertaPlan IA.\n\nEn la web: <b>menú → Bot de Telegram</b>, genera un código y envíame:\n<code>/vincular CODIGO</code>\n\n¿Aún no tienes cuenta? En la pantalla de ingreso elige <b>Solicitar acceso</b> con el código de equipo que te da Gerencia.");
                 return;
             }
             if (isset($m['document'])) {
@@ -90,14 +90,18 @@ final class Bot
 
     private function usuario(int $chat): ?array
     {
-        $st = db()->prepare('SELECT u.id, u.nombre, u.cargo, u.rol, v.obra_id FROM telegram_vinculos v JOIN usuarios u ON u.id = v.usuario_id WHERE v.chat_id = ? AND u.activo = 1');
+        $st = db()->prepare('SELECT u.id, u.nombre, u.cargo, u.rol, v.obra_id FROM telegram_vinculos v JOIN usuarios u ON u.id = v.usuario_id WHERE v.chat_id = ? AND u.activo = 1 AND u.estado = \'activo\'');
         $st->execute([$chat]);
         return $st->fetch() ?: null;
     }
 
     public static function generarCodigo(int $usuarioId): string
     {
-        $c = substr(str_shuffle(str_repeat('ABCDEFGHJKLMNPQRSTUVWXYZ23456789', 3)), 0, 6);
+        $abc = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+        $c = '';
+        for ($i = 0; $i < 6; $i++) {
+            $c .= $abc[random_int(0, strlen($abc) - 1)]; // generador criptográfico
+        }
         db()->prepare('DELETE FROM telegram_codigos WHERE usuario_id = ? OR expira_en < NOW()')->execute([$usuarioId]);
         db()->prepare('INSERT INTO telegram_codigos (codigo, usuario_id, expira_en) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 10 MINUTE))')->execute([$c, $usuarioId]);
         return $c;
@@ -106,7 +110,7 @@ final class Bot
     private function vincular(int $chat, string $codigo, array $from): void
     {
         $codigo = strtoupper(trim($codigo));
-        $st = db()->prepare('SELECT usuario_id FROM telegram_codigos WHERE codigo = ? AND expira_en >= NOW()');
+        $st = db()->prepare("SELECT c.usuario_id FROM telegram_codigos c JOIN usuarios u ON u.id = c.usuario_id AND u.activo = 1 AND u.estado = 'activo' WHERE c.codigo = ? AND c.expira_en >= NOW()");
         $st->execute([$codigo]);
         $uid = $st->fetchColumn();
         if (!$uid) {
@@ -136,7 +140,7 @@ final class Bot
             $this->ayuda($chat, $u);
             return;
         }
-        $this->tg->enviar($chat, "👷 <b>AlertaPlan IA</b> · seguimiento de obra\n\nPara usarme, vincula este chat con tu usuario:\n1. Entra a la web y abre <b>Telegram</b> en el menú.\n2. Copia el código y envíame <code>/vincular CODIGO</code>.");
+        $this->tg->enviar($chat, "👷 <b>AlertaPlan IA</b> · seguimiento de obra\n\nPara usarme, vincula este chat con tu usuario:\n1. Entra a la web y abre <b>Telegram</b> en el menú.\n2. Copia el código y envíame <code>/vincular CODIGO</code>.\n\n¿Aún no tienes cuenta? En la pantalla de ingreso elige <b>Solicitar acceso</b> con el código de equipo que te da Gerencia; podrás vincularte cuando te aprueben.");
     }
 
     private function ayuda(int $chat, array $u): void

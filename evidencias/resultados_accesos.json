@@ -1,0 +1,175 @@
+{
+    "generado": "2026-11-13 11:49",
+    "aprobados": 28,
+    "total": 28,
+    "casos": [
+        {
+            "id": "A01",
+            "nombre": "Política: rechaza contraseñas de menos de 10 caracteres",
+            "ok": true,
+            "obtenido": ""
+        },
+        {
+            "id": "A02",
+            "nombre": "Política: exige letras y números",
+            "ok": true,
+            "obtenido": ""
+        },
+        {
+            "id": "A03",
+            "nombre": "Política: rechaza la contraseña que estuvo publicada",
+            "ok": true,
+            "obtenido": "Esa contraseña es demasiado común o ya fue publicada. Elige otra."
+        },
+        {
+            "id": "A04",
+            "nombre": "Política: la contraseña no puede contener el correo",
+            "ok": true,
+            "obtenido": ""
+        },
+        {
+            "id": "A05",
+            "nombre": "Solo Gerencia genera códigos de equipo",
+            "ok": true,
+            "obtenido": "Solo Gerencia puede gestionar los accesos."
+        },
+        {
+            "id": "A06",
+            "nombre": "El código se muestra una vez y en la base solo queda su hash",
+            "ok": true,
+            "obtenido": "EQ-82E7-BGQX"
+        },
+        {
+            "id": "A07",
+            "nombre": "Registro con código inválido: rechazado y sin cuenta creada",
+            "ok": true,
+            "obtenido": "El código de equipo no es válido o ya venció. Pídelo a Gerencia."
+        },
+        {
+            "id": "A08",
+            "nombre": "Registro válido: cuenta pendiente, sin acceso, y el código suma un uso",
+            "ok": true,
+            "obtenido": "[\"pendiente\",1]"
+        },
+        {
+            "id": "A09",
+            "nombre": "Cuenta pendiente no ingresa aunque la contraseña sea correcta",
+            "ok": true,
+            "obtenido": "Tu solicitud de acceso está pendiente de aprobación por Gerencia."
+        },
+        {
+            "id": "A10",
+            "nombre": "Correo ya registrado: misma respuesta (no revela cuentas) y no duplica",
+            "ok": true,
+            "obtenido": "cuentas=1"
+        },
+        {
+            "id": "A11",
+            "nombre": "Solo Gerencia aprueba solicitudes",
+            "ok": true,
+            "obtenido": "Solo Gerencia puede gestionar los accesos."
+        },
+        {
+            "id": "A12",
+            "nombre": "Gerencia aprueba y decide el rol final (puede diferir del solicitado)",
+            "ok": true,
+            "obtenido": "planeamiento"
+        },
+        {
+            "id": "A13",
+            "nombre": "Cuenta aprobada ingresa y se registra el último ingreso",
+            "ok": true,
+            "obtenido": ""
+        },
+        {
+            "id": "A14",
+            "nombre": "Rechazar exige indicar el motivo",
+            "ok": true,
+            "obtenido": "Indica el motivo del rechazo."
+        },
+        {
+            "id": "A15",
+            "nombre": "Solicitud rechazada no ingresa",
+            "ok": true,
+            "obtenido": "Tu solicitud de acceso fue rechazada. Consulta con Gerencia."
+        },
+        {
+            "id": "A16",
+            "nombre": "Código vencido no sirve",
+            "ok": true,
+            "obtenido": "El código de equipo no es válido o ya venció. Pídelo a Gerencia."
+        },
+        {
+            "id": "A17",
+            "nombre": "Código de un solo uso no admite una segunda solicitud",
+            "ok": true,
+            "obtenido": "El código de equipo no es válido o ya venció. Pídelo a Gerencia."
+        },
+        {
+            "id": "A18",
+            "nombre": "Código revocado no sirve",
+            "ok": true,
+            "obtenido": "El código de equipo no es válido o ya venció. Pídelo a Gerencia."
+        },
+        {
+            "id": "A19",
+            "nombre": "5 intentos fallidos bloquean la cuenta: luego ni la contraseña correcta entra",
+            "ok": true,
+            "obtenido": "Demasiados intentos fallidos. Inténtalo nuevamente en 15 minuto(s)."
+        },
+        {
+            "id": "A20",
+            "nombre": "Mismo mensaje para correo inexistente y contraseña errónea (no revela cuentas)",
+            "ok": true,
+            "obtenido": "Correo o contraseña incorrectos."
+        },
+        {
+            "id": "A21",
+            "nombre": "Fuerza bruta de códigos: la conexión queda frenada tras 5 intentos",
+            "ok": true,
+            "obtenido": "Demasiados intentos con códigos inválidos desde esta conexión. Espera una hora o pide ayuda a Gerencia."
+        },
+        {
+            "id": "A22",
+            "nombre": "Al suspender: la sesión web deja de ser válida y el bot ya no responde datos",
+            "ok": true,
+            "obtenido": "🔒 Este chat no está vinculado a AlertaPlan IA.\n\nEn la web: menú → Bot de Telegram, genera un código y envíame:\n\/vincular CODIGO\n\n¿Aún no tienes cuenta? En la pa"
+        },
+        {
+            "id": "A23",
+            "nombre": "Una cuenta suspendida no puede vincular nuevos chats",
+            "ok": true,
+            "obtenido": "❌ Código inválido o vencido (dura 10 minutos). Genera otro en la web: menú → Telegram."
+        },
+        {
+            "id": "A24",
+            "nombre": "Gerencia no puede suspender su propia cuenta",
+            "ok": true,
+            "obtenido": "No puedes suspender tu propia cuenta."
+        },
+        {
+            "id": "A25",
+            "nombre": "Reactivar devuelve el acceso",
+            "ok": true,
+            "obtenido": ""
+        },
+        {
+            "id": "A26",
+            "nombre": "La contraseña que estuvo publicada se rota automáticamente y deja de servir",
+            "ok": true,
+            "obtenido": "rotadas=1"
+        },
+        {
+            "id": "A27",
+            "nombre": "La pantalla de ingreso no muestra usuarios ni contraseñas",
+            "ok": true,
+            "obtenido": ""
+        },
+        {
+            "id": "A28",
+            "nombre": "Cada solicitud, decisión y bloqueo queda en la auditoría",
+            "ok": true,
+            "obtenido": "acceso_aprobado,acceso_reactivado,acceso_rechazado,acceso_suspendido,clave_rotada,codigo_equipo_creado,codigo_equipo_revocado,cuenta_bloqueada,inicio_sesion,sol"
+        }
+    ]
+}

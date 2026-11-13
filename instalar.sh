@@ -44,4 +44,4 @@ else
   echo "Apache de FlyEnv no está encendido. Enciéndelo y vuelve a ejecutar, o usa:"
   echo "   $PHP_BIN -S 127.0.0.1:8091 -t \"$RAIZ/public\""
 fi
-echo "Usuarios: planeamiento@claveles.demo / produccion@claveles.demo / gerencia@claveles.demo · clave Aecode2026!"
+echo "Usuarios: planeamiento@ / produccion@ / gerencia@claveles.demo · contraseña: la de DEMO_CLAVE en .env o la que se mostró arriba (storage/credenciales_demo.txt)"

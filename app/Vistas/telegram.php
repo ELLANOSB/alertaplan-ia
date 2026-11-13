@@ -28,6 +28,16 @@ $titulo = 'Telegram';
   </section>
 </div>
 <section class="panel mt">
+  <header><h2>¿Cómo se suma otro integrante del equipo?</h2><span class="suave">cada persona vincula su propio Telegram</span></header>
+  <ol class="pasos">
+    <li><b>Tener cuenta aprobada.</b> Si aún no la tiene: en la pantalla de ingreso pulsa <i>Solicitar acceso</i> con el código de equipo que entrega Gerencia, y espera su aprobación.</li>
+    <li><b>Ingresar a la web</b> con su propio correo y abrir <i>Bot de Telegram</i>.</li>
+    <li><b>Generar código</b> (dura 10 minutos y sirve una sola vez).</li>
+    <li>Abrir <?= $bot ? '<a href="https://t.me/' . e($bot) . '" target="_blank" rel="noopener"><b>@' . e($bot) . '</b></a>' : '<b>el bot</b>' ?> en Telegram y enviar <span class="mono">/vincular CÓDIGO</span>.</li>
+  </ol>
+  <p class="suave" style="font-size:13px">El bot responde con el rol de esa persona: Producción registra partes, Planeamiento además carga Excel, Gerencia solo ve informes aprobados. Los chats no vinculados no reciben datos, y si Gerencia suspende la cuenta el chat deja de funcionar de inmediato.</p>
+</section>
+<section class="panel mt">
   <header><h2>Comandos</h2></header>
   <div class="tabla-env"><table><thead><tr><th>Comando</th><th>Qué hace</th><th>Roles</th></tr></thead><tbody>
     <tr><td class="mono">/estado [obra]</td><td>PPC, avance programado vs ejecutado, conteo por estado y prioridades</td><td>todos</td></tr>

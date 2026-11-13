@@ -28,7 +28,12 @@ foreach (array_filter(array_map('trim', explode(';', $sql))) as $stmt) {
 }
 
 echo "→ Usuarios de demostración…\n";
-$clave = password_hash('Aecode2026!', PASSWORD_DEFAULT);
+// La contraseña demo nunca va en el código: se toma de DEMO_CLAVE o se genera una aleatoria
+$claveDemo = (string)env('DEMO_CLAVE', '') ?: App\Accesos::claveAleatoria();
+if ($e = App\Accesos::errorClave($claveDemo)) {
+    exit("DEMO_CLAVE no cumple la política: {$e}\n");
+}
+$clave = password_hash($claveDemo, PASSWORD_DEFAULT);
 $usuarios = [
     ['Ing. Patricia Salazar', 'Ingeniera de Planeamiento', 'planeamiento@claveles.demo', 'planeamiento'],
     ['Ing. Carlos Mendoza', 'Ingeniero de Producción', 'produccion@claveles.demo', 'produccion'],
@@ -41,7 +46,7 @@ foreach ($usuarios as $u) {
     $uid[$u[3]] = (int)$pdo->lastInsertId();
 }
 if ($vacio) {
-    echo "Listo (sin datos de demo).\n";
+    echo "Listo (sin datos de demo). Contraseña de las cuentas: " . (env('DEMO_CLAVE', '') ? 'la de DEMO_CLAVE' : $claveDemo) . "\n";
     exit;
 }
 
@@ -90,4 +95,13 @@ foreach ($spec['obras'] as $o) {
         echo " · aprobada con PPC {$k['ppc']}%\n";
     }
 }
-echo "Listo. Ingresa con planeamiento@claveles.demo / Aecode2026!\n";
+if (env('DEMO_CLAVE', '')) {
+    echo "Listo. Usuarios demo: planeamiento@ / produccion@ / gerencia@claveles.demo con la contraseña definida en DEMO_CLAVE.\n";
+} else {
+    $f = RAIZ . '/storage/credenciales_demo.txt';
+    @mkdir(dirname($f), 0700, true);
+    file_put_contents($f, "Contraseña de las cuentas demo: {$claveDemo}\n");
+    @chmod($f, 0600);
+    echo "Listo. Usuarios demo: planeamiento@ / produccion@ / gerencia@claveles.demo · contraseña generada: {$claveDemo}\n";
+    echo "   (también en storage/credenciales_demo.txt; define DEMO_CLAVE en .env para fijarla)\n";
+}
