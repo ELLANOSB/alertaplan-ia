@@ -5,7 +5,8 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends libzip-dev \
  && docker-php-ext-install pdo_mysql zip \
  && rm -rf /var/lib/apt/lists/* \
- && a2enmod headers \
+ && (a2dismod -f mpm_event mpm_worker >/dev/null 2>&1 || true) \
+ && a2enmod mpm_prefork headers \
  && printf "upload_max_filesize=6M\npost_max_size=8M\nmemory_limit=256M\nexpose_php=Off\ndate.timezone=America/Lima\n" > /usr/local/etc/php/conf.d/alertaplan.ini
 
 ENV APACHE_DOCUMENT_ROOT=/app/public
