@@ -10,8 +10,8 @@ RUN apt-get update \
 
 ENV APACHE_DOCUMENT_ROOT=/app/public
 RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf /etc/apache2/apache2.conf \
- && printf '<Directory /app/public>\n  Options -Indexes\n  AllowOverride None\n  Require all granted\n</Directory>\nServerTokens Prod\nServerSignature Off\nHeader always set X-Content-Type-Options "nosniff"\nHeader always set X-Frame-Options "SAMEORIGIN"\n' > /etc/apache2/conf-available/alertaplan.conf \
- && a2enconf alertaplan
+ && printf '<Directory /app/public>\n  Options -Indexes\n  AllowOverride None\n  Require all granted\n</Directory>\nServerName localhost\nServerTokens Prod\nServerSignature Off\nHeader always set X-Content-Type-Options "nosniff"\nHeader always set X-Frame-Options "SAMEORIGIN"\n' > /etc/apache2/conf-available/zz-alertaplan.conf \
+ && a2enconf zz-alertaplan
 
 WORKDIR /app
 COPY . /app
