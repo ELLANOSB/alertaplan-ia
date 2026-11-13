@@ -1,0 +1,169 @@
+{
+    "generado": "2026-11-11 01:06",
+    "aprobados": 27,
+    "total": 27,
+    "casos": [
+        {
+            "id": "B1",
+            "nombre": "Chat no vinculado no recibe datos",
+            "ok": true,
+            "obtenido": "🔒 Este chat no está vinculado a AlertaPlan IA.\n\nEn la web: menú → Telegram, genera un código y envíame:\n\/vincular CODIGO"
+        },
+        {
+            "id": "B2",
+            "nombre": "Código inválido rechazado",
+            "ok": true,
+            "obtenido": "❌ Código inválido o vencido (dura 10 minutos). Genera otro en la web: menú → Telegram."
+        },
+        {
+            "id": "B3",
+            "nombre": "Vinculación por código de un solo uso (también vía \/start CODIGO)",
+            "ok": true,
+            "obtenido": "3 chats vinculados"
+        },
+        {
+            "id": "B4",
+            "nombre": "El código no se puede reutilizar",
+            "ok": true,
+            "obtenido": "❌ Código inválido o vencido (dura 10 minutos). Genera otro en la web: menú → Telegram."
+        },
+        {
+            "id": "B5",
+            "nombre": "\/estado devuelve PPC y conteo por estado del corte vigente",
+            "ok": true,
+            "obtenido": "🏗 Obra de prueba del bot\nSemana 46 · 07\/11\/2026 → 14\/11\/2026 · 📝 abierto\nDatos al 07\/11\/2026\n\n📊 PPC 0% (0 de 8 compromisos)\n📈 Avance 30.0% vs 30.1% programado ("
+        },
+        {
+            "id": "B6",
+            "nombre": "\/atrasos lista actividades rojas con su motivo",
+            "ok": true,
+            "obtenido": "🔴 Atrasos y bloqueos · TGT S46\n\n🔴 CL-02 Acero de losa de sótano → 13 nov (+2 d)\nTerminaría 2 día(s) calendario después del fin planificado\n\n🔴 CL-05 Armado de co"
+        },
+        {
+            "id": "B7",
+            "nombre": "\/actividad muestra el cálculo explicable",
+            "ok": true,
+            "obtenido": "🔴 CL-02 · Acero de losa de sótano\nObra de prueba del bot · S46 · Sótano\n\nEstado: Atraso probable\nTerminaría 2 día(s) calendario después del fin planificado\n\nPla"
+        },
+        {
+            "id": "B8",
+            "nombre": "\/informe envía el informe como archivo autocontenido",
+            "ok": true,
+            "obtenido": "Informe_TGT_S46_BORRADOR.html · 47828 B"
+        },
+        {
+            "id": "B9",
+            "nombre": "\/parte de Producción registra el avance y recalcula",
+            "ok": true,
+            "obtenido": "✅ Parte registrado · CL-02 Acero de losa de sótano\nObra de prueba del bot · S46\n10\/11\/2026: +1 t → 4\/8\n🔴 → 🔴 Atraso probable · fecha probable 14\/11\/2026\nTermina"
+        },
+        {
+            "id": "B10",
+            "nombre": "\/parte rechaza un acumulado mayor al metrado",
+            "ok": true,
+            "obtenido": "⚠️ El acumulado (103) superaría el metrado total (8)."
+        },
+        {
+            "id": "B11",
+            "nombre": "Producción no puede cargar planificaciones",
+            "ok": true,
+            "obtenido": "⚠️ Solo Planeamiento puede cargar planificaciones."
+        },
+        {
+            "id": "B12",
+            "nombre": "Archivo con errores se rechaza antes de guardar",
+            "ok": true,
+            "obtenido": "⚠️ El archivo tiene errores y no se puede importar:\n• Fila 3: ID E-01 repetido.\n• Fila 4: fecha de inicio no válida (&#039;31\/02\/2026&#039;).\n• Fila 5: ejecutad"
+        },
+        {
+            "id": "B13",
+            "nombre": "Archivo sin descripción completa pide los datos",
+            "ok": true,
+            "obtenido": "⚠️ Falta la descripción. Reenvía el archivo con:\n\/cargar CLV 47 14\/11\/2026 21\/11\/2026 [fecha de datos]"
+        },
+        {
+            "id": "B14",
+            "nombre": "Excel por Telegram: vista previa con PPC y botones, sin guardar todavía",
+            "ok": true,
+            "obtenido": "📋 Vista previa · Plantilla_Casuisticas_S47.xlsx\nObra de prueba del bot · semana 47 · corte 14\/11\/2026 · cierre 21\/11\/2026 · datos al 21\/11\/2026\n\n23 actividades "
+        },
+        {
+            "id": "B15",
+            "nombre": "Otro chat no puede confirmar la carga ajena",
+            "ok": true,
+            "obtenido": "⚠️ Esa carga ya no está pendiente."
+        },
+        {
+            "id": "B16",
+            "nombre": "Al confirmar, se importa con la fecha de datos y responde el estado",
+            "ok": true,
+            "obtenido": "23 actividades · 🏗 Obra de prueba del bot\nSemana 47 · 14\/11\/2026 → 21\/11\/2026 · 📝 abierto\nDatos al 21\/11\/2026\n\n📊 PPC 31.3% (5 de 16 compromisos)\n📈 Avance 44.2% "
+        },
+        {
+            "id": "B17",
+            "nombre": "Cancelar no guarda nada",
+            "ok": true,
+            "obtenido": "✖️ Carga cancelada. No se guardó nada."
+        },
+        {
+            "id": "B25",
+            "nombre": "\/obras muestra un botón por obra",
+            "ok": true,
+            "obtenido": "3 botones"
+        },
+        {
+            "id": "B26",
+            "nombre": "\/obras con texto copiado del mensaje elige la obra",
+            "ok": true,
+            "obtenido": "✅ Obra elegida: CLV · Edificio Multifamiliar Claveles\nAhora \/estado, \/atrasos y \/actividad usan esta obra."
+        },
+        {
+            "id": "B27",
+            "nombre": "Tocar el botón de la obra la elige",
+            "ok": true,
+            "obtenido": "✅ Obra elegida: TGT · Obra de prueba del bot\nAhora \/estado, \/atrasos y \/actividad usan esta obra."
+        },
+        {
+            "id": "B18",
+            "nombre": "Gerencia no ve cortes sin aprobar",
+            "ok": true,
+            "obtenido": "⚠️ Aún no hay informes aprobados para Obra de prueba del bot."
+        },
+        {
+            "id": "B19",
+            "nombre": "Gerencia ve el último corte aprobado",
+            "ok": true,
+            "obtenido": "🏗 Edificio Multifamiliar Claveles\nSemana 45 · 31\/10\/2026 → 07\/11\/2026 · ✅ aprobado\nDatos al 07\/11\/2026\n\n📊 PPC 71.4% (5 de 7 compromisos)\n📈 Avance 78.1% vs 95.2%"
+        },
+        {
+            "id": "B20",
+            "nombre": "Gerencia no registra partes",
+            "ok": true,
+            "obtenido": "⚠️ Tu rol no registra partes diarios."
+        },
+        {
+            "id": "B21",
+            "nombre": "Texto libre con código de actividad → detalle",
+            "ok": true,
+            "obtenido": "🔴 C08 · Montaje de grúa torre\nObra de prueba del bot · S47 · Torre 1\n\nEstado: Atraso probable\nTerminaría 5 día(s) calendario después del fin planificado. Contin"
+        },
+        {
+            "id": "B22",
+            "nombre": "Texto libre sin API de IA → se responde con reglas",
+            "ok": true,
+            "obtenido": "🔴 Atrasos y bloqueos · TGT S47\n\n🔴 C05 Encofrado de losa piso 3 → 30 nov (+9 d)\nTerminaría 9 día(s) calendario después del fin planificado. Continúa después del "
+        },
+        {
+            "id": "B23",
+            "nombre": "Mensajes de grupos se ignoran (solo chats privados)",
+            "ok": true,
+            "obtenido": "sin respuesta"
+        },
+        {
+            "id": "B24",
+            "nombre": "Vinculaciones quedan en auditoría",
+            "ok": true,
+            "obtenido": "4 eventos"
+        }
+    ]
+}

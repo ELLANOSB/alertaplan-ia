@@ -1,0 +1,89 @@
+{
+ "_nota": "Conjunto ciego redactado DESPUÉS de ajustar corpus y umbral; no se usó para ajustar nada. Sintético.",
+ "casos": [
+  {
+   "nota": "Camión de acero quedó retenido en la garita, no hubo descarga",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "Seguimos esperando las planchas de drywall del proveedor",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "Tablero eléctrico importado aún en aduana",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "El maestro de obra llevó a sus operarios a otra obra",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "Faltaron soldadores certificados en el turno tarde",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "Paro de construcción civil, asistencia mínima",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "Proyectista no absuelve la consulta sobre el refuerzo de vigas",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "Municipalidad no emite autorización para corte de calle",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "Cliente cambió el acabado de pisos, falta plano nuevo",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "Control de calidad observó cangrejeras en columnas, se resanará",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Se rehízo el contrapiso por desnivel",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Ensayo de densidad de campo no cumple",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Lloviznó en la madrugada y se postergó la pintura exterior",
+   "esperado": "clima"
+  },
+  {
+   "nota": "Vientos de más de 50 km/h, se detuvo la grúa",
+   "esperado": "clima"
+  },
+  {
+   "nota": "Se malogró el winche y no se pudo subir material",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "La retroexcavadora quedó sin operador por falla del equipo",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "Corte de energía dejó sin funcionar la mezcladora",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "Estructuras todavía no entrega el piso para albañilería",
+   "esperado": "predecesora"
+  },
+  {
+   "nota": "Falta terminar el vaciado del nivel inferior",
+   "esperado": "predecesora"
+  },
+  {
+   "nota": "Todo normal en el frente",
+   "esperado": "sin_dato"
+  },
+  {
+   "nota": "Ver reporte adjunto",
+   "esperado": "sin_dato"
+  }
+ ]
+}

@@ -1,0 +1,125 @@
+{
+ "_nota": "Conjunto de evaluación sintético, redactado aparte del entrenamiento. 'sin_dato' = la nota no permite atribuir causa; lo correcto es abstenerse.",
+ "casos": [
+  {
+   "nota": "El proveedor de fierro reprogramó el despacho para el lunes",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "No llegó el cemento solicitado, almacén sin stock",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "Pedido de tubería PVC sigue en compras",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "Faltó la entrega de bloquetas desde la ladrillera",
+   "esperado": "materiales"
+  },
+  {
+   "nota": "Solo vinieron 3 de los 8 operarios programados",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "La cuadrilla de electricistas fue reasignada a la torre B",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "Ausentismo alto del personal de encofrado el jueves",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "Subcontratista de drywall no envió trabajadores",
+   "esperado": "mano_obra"
+  },
+  {
+   "nota": "Supervisión aún no aprueba el plano de detalle de escaleras",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "RFI de instalaciones sanitarias sin respuesta del proyectista",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "Falta licencia municipal para ocupar la vereda",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "Incompatibilidad de cotas entre arquitectura y estructuras",
+   "esperado": "ingenieria"
+  },
+  {
+   "nota": "La prueba hidráulica falló y hay que rehacer uniones",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Supervisión rechazó el tarrajeo por desplome",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Resultado de probetas a 7 días por debajo de lo esperado",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Se detectaron fisuras en el muro y se debe reparar",
+   "esperado": "calidad"
+  },
+  {
+   "nota": "Lluvia intensa obligó a suspender el vaciado",
+   "esperado": "clima"
+  },
+  {
+   "nota": "Vientos fuertes impidieron el izaje con grúa",
+   "esperado": "clima"
+  },
+  {
+   "nota": "Garúa toda la mañana, la fachada quedó húmeda",
+   "esperado": "clima"
+  },
+  {
+   "nota": "Neblina impidió trabajar en altura en la fachada",
+   "esperado": "clima"
+  },
+  {
+   "nota": "La bomba de concreto se averió a media jornada",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "Montacargas en mantenimiento correctivo",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "Excavadora alquilada no llegó por falla mecánica",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "Mezcladora malograda, se paró la producción",
+   "esperado": "equipos"
+  },
+  {
+   "nota": "No se liberó el frente porque falta desencofrar la losa anterior",
+   "esperado": "predecesora"
+  },
+  {
+   "nota": "Las instalaciones eléctricas previas siguen pendientes",
+   "esperado": "predecesora"
+  },
+  {
+   "nota": "La actividad anterior va atrasada y bloquea el inicio",
+   "esperado": "predecesora"
+  },
+  {
+   "nota": "Se avanzó según lo programado sin novedades",
+   "esperado": "sin_dato"
+  },
+  {
+   "nota": "Pendiente",
+   "esperado": "sin_dato"
+  },
+  {
+   "nota": "Revisar mañana con el residente",
+   "esperado": "sin_dato"
+  }
+ ]
+}

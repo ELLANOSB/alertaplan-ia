@@ -1,0 +1,8 @@
+﻿"ID";"Actividad";"Sector";"Responsable";"Unidad";"Inicio";"Fin";"Total";"Ejecutado";"Rendimiento";"Predecesoras";"Restriccion";"Liberacion";"Fin real";"Observacion"
+"VA-01";"Excavación de zanja tramo km 0+000-0+400";"Km 0";"Ing. Producción";"m3";"2026-11-02";"2026-11-13";"800";"800";"60";"";"";"";"2026-11-13";""
+"VA-02";"Base granular tramo 1";"Km 0";"Ing. Producción";"m3";"2026-11-09";"2026-11-20";"400";"40";"80";"";"";"";"";""
+"VA-03";"Alcantarilla TMC km 0+250";"Km 0";"Ing. Producción";"und";"2026-11-04";"2026-11-19";"3";"2";"1";"";"";"";"";"Cuadrilla incompleta por operarios ausentes"
+"VA-04";"Señalización vertical";"Km 1";"Ing. Producción";"und";"2026-11-09";"2026-11-27";"40";"0";"8";"";"Permiso municipal";"2026-11-18";"";""
+"VA-05";"Imprimación asfáltica tramo 1";"Km 0";"Ing. Producción";"m2";"2026-11-23";"2026-11-27";"3000";"0";"1000";"VA-02";"";"";"";""
+"VA-06";"Cunetas revestidas";"Km 1";"Ing. Producción";"ml";"2026-11-02";"2026-11-30";"600";"330";"30";"";"";"";"";""
+"VA-07";"Sardineles de concreto";"Km 0";"Ing. Producción";"ml";"2026-11-16";"2026-11-21";"200";"0";"";"";"";"";"";"Rendimiento por confirmar"

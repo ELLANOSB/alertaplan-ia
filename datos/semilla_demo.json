@@ -1,0 +1,1096 @@
+{
+ "_nota": "Datos ficticios para la demo académica. No corresponden a obras ni personas reales.",
+ "encabezados": [
+  "ID",
+  "Actividad",
+  "Sector",
+  "Responsable",
+  "Unidad",
+  "Inicio",
+  "Fin",
+  "Total",
+  "Ejecutado",
+  "Rendimiento",
+  "Predecesoras",
+  "Restriccion",
+  "Liberacion",
+  "Fin real",
+  "Observacion"
+ ],
+ "obras": [
+  {
+   "codigo": "CLV",
+   "nombre": "Edificio Multifamiliar Claveles",
+   "cliente": "Inmobiliaria ficticia (demo)",
+   "ubicacion": "Lima, Perú",
+   "etapa": "Casco · sótano y torre 1",
+   "dias": "1,2,3,4,5,6",
+   "feriados": "2026-12-08,2026-12-25",
+   "umbral": 2,
+   "cortes": [
+    {
+     "semana": 44,
+     "corte": "2026-10-24",
+     "cierre": "2026-10-31",
+     "archivo": "Claveles_S44_plan.xlsx",
+     "acts": [
+      [
+       "SOT-01",
+       "Excavación masiva de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "m3",
+       "2026-10-12",
+       "2026-10-31",
+       900,
+       600,
+       60,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "SOT-02",
+       "Eliminación de material excedente",
+       "Sótano",
+       "Ing. Producción",
+       "m3",
+       "2026-10-15",
+       "2026-10-29",
+       500,
+       300,
+       50,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CIM-01",
+       "Zapatas ejes A-C",
+       "Cimentación",
+       "Ing. Producción",
+       "und",
+       "2026-10-19",
+       "2026-10-28",
+       12,
+       8,
+       2,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CIM-02",
+       "Cimientos corridos",
+       "Cimentación",
+       "Ing. Producción",
+       "m3",
+       "2026-10-20",
+       "2026-10-30",
+       60,
+       30,
+       10,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "ACE-01",
+       "Habilitado de acero de cimentación",
+       "Patio",
+       "Logística",
+       "t",
+       "2026-10-19",
+       "2026-10-27",
+       6,
+       4,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "TOP-01",
+       "Replanteo de ejes de torre 1",
+       "Torre 1",
+       "Oficina técnica",
+       "und",
+       "2026-10-26",
+       "2026-10-30",
+       1,
+       0,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-01",
+       "Muros de contención de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "ml",
+       "2026-10-19",
+       "2026-11-12",
+       180,
+       20,
+       10,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ],
+     "partes": [
+      [
+       "SOT-01",
+       "2026-10-26",
+       60,
+       ""
+      ],
+      [
+       "SOT-01",
+       "2026-10-27",
+       60,
+       ""
+      ],
+      [
+       "SOT-01",
+       "2026-10-28",
+       0,
+       "Excavadora en reparación por falla mecánica"
+      ],
+      [
+       "SOT-01",
+       "2026-10-29",
+       0,
+       "Excavadora sigue en taller, se espera repuesto"
+      ],
+      [
+       "SOT-01",
+       "2026-10-30",
+       60,
+       ""
+      ],
+      [
+       "SOT-01",
+       "2026-10-31",
+       90,
+       "Se alquiló equipo de reemplazo"
+      ],
+      [
+       "SOT-02",
+       "2026-10-26",
+       50,
+       ""
+      ],
+      [
+       "SOT-02",
+       "2026-10-27",
+       50,
+       ""
+      ],
+      [
+       "SOT-02",
+       "2026-10-28",
+       50,
+       ""
+      ],
+      [
+       "SOT-02",
+       "2026-10-29",
+       50,
+       ""
+      ],
+      [
+       "CIM-01",
+       "2026-10-26",
+       2,
+       ""
+      ],
+      [
+       "CIM-01",
+       "2026-10-27",
+       2,
+       ""
+      ],
+      [
+       "CIM-02",
+       "2026-10-26",
+       10,
+       ""
+      ],
+      [
+       "CIM-02",
+       "2026-10-27",
+       10,
+       ""
+      ],
+      [
+       "CIM-02",
+       "2026-10-28",
+       10,
+       ""
+      ],
+      [
+       "ACE-01",
+       "2026-10-26",
+       0.5,
+       "No llegó el fierro de 5/8 del proveedor"
+      ],
+      [
+       "ACE-01",
+       "2026-10-27",
+       1,
+       ""
+      ],
+      [
+       "TOP-01",
+       "2026-10-27",
+       1,
+       "Replanteo verificado por topografía"
+      ],
+      [
+       "CL-01",
+       "2026-10-26",
+       30,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-10-28",
+       20,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-10-30",
+       20,
+       ""
+      ]
+     ],
+     "repro": {
+      "SOT-01": [
+       "2026-11-04",
+       "Se alquiló excavadora de reemplazo; Ing. Producción controla avance diario"
+      ],
+      "ACE-01": [
+       "2026-11-03",
+       "Logística confirma despacho de fierro 5/8 para el 02/11"
+      ]
+     },
+     "aprobar": "Semana con falla de excavadora; se alquiló equipo de reemplazo."
+    },
+    {
+     "semana": 45,
+     "corte": "2026-10-31",
+     "cierre": "2026-11-07",
+     "archivo": "Claveles_S45_plan.xlsx",
+     "acts": [
+      [
+       "SOT-01",
+       "Excavación masiva de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "m3",
+       "2026-10-12",
+       "2026-11-04",
+       900,
+       870,
+       60,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CIM-03",
+       "Vigas de cimentación",
+       "Cimentación",
+       "Ing. Producción",
+       "m3",
+       "2026-11-02",
+       "2026-11-06",
+       40,
+       10,
+       10,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "ACE-01",
+       "Habilitado de acero de cimentación",
+       "Patio",
+       "Logística",
+       "t",
+       "2026-10-19",
+       "2026-11-03",
+       6,
+       5.5,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "PAT-01",
+       "Cerco provisional de patio",
+       "Patio",
+       "Ing. Producción",
+       "m",
+       "2026-11-02",
+       "2026-11-05",
+       80,
+       20,
+       15,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "LAB-01",
+       "Rotura de probetas a 7 días",
+       "Calidad",
+       "Laboratorio",
+       "und",
+       "2026-11-04",
+       "2026-11-06",
+       1,
+       0,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "GRU-01",
+       "Dado de concreto para base de grúa torre",
+       "Torre 1",
+       "Ing. Producción",
+       "und",
+       "2026-11-03",
+       "2026-11-07",
+       1,
+       0,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "ING-01",
+       "Aprobación de planos de encofrado de losa",
+       "Oficina técnica",
+       "Oficina técnica",
+       "und",
+       "2026-11-02",
+       "2026-11-04",
+       1,
+       0,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-01",
+       "Muros de contención de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "ml",
+       "2026-10-19",
+       "2026-11-12",
+       180,
+       90,
+       10,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-05",
+       "Armado de columnas 1er nivel torre 1",
+       "Torre 1",
+       "Ing. Producción",
+       "und",
+       "2026-11-02",
+       "2026-11-10",
+       20,
+       4,
+       2,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ],
+     "partes": [
+      [
+       "SOT-01",
+       "2026-11-02",
+       30,
+       "Excavación concluida"
+      ],
+      [
+       "CIM-03",
+       "2026-11-02",
+       10,
+       ""
+      ],
+      [
+       "CIM-03",
+       "2026-11-03",
+       10,
+       ""
+      ],
+      [
+       "CIM-03",
+       "2026-11-05",
+       10,
+       ""
+      ],
+      [
+       "ACE-01",
+       "2026-11-02",
+       0.5,
+       "Llegó el fierro de 5/8"
+      ],
+      [
+       "PAT-01",
+       "2026-11-02",
+       10,
+       ""
+      ],
+      [
+       "PAT-01",
+       "2026-11-03",
+       10,
+       "Cuadrilla reasignada al sótano, faltó personal"
+      ],
+      [
+       "LAB-01",
+       "2026-11-06",
+       1,
+       "Resultado a 7 días: 152 kg/cm²"
+      ],
+      [
+       "GRU-01",
+       "2026-11-06",
+       1,
+       ""
+      ],
+      [
+       "ING-01",
+       "2026-11-04",
+       0,
+       "Supervisión no aprueba el plano de encofrado; RFI 014 sin respuesta del proyectista"
+      ],
+      [
+       "CL-01",
+       "2026-11-02",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-03",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-04",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-05",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-06",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-07",
+       10,
+       ""
+      ],
+      [
+       "CL-05",
+       "2026-11-05",
+       2,
+       ""
+      ],
+      [
+       "CL-05",
+       "2026-11-06",
+       2,
+       ""
+      ],
+      [
+       "CL-05",
+       "2026-11-07",
+       6,
+       ""
+      ]
+     ],
+     "repro": {
+      "PAT-01": [
+       "2026-11-10",
+       "Se asigna cuadrilla exclusiva de 4 operarios (Ing. Producción)"
+      ],
+      "ING-01": [
+       "2026-11-09",
+       "Oficina técnica escala RFI 014 al proyectista"
+      ]
+     },
+     "aprobar": "RFI 014 escalado; se refuerza cuadrilla de patio."
+    },
+    {
+     "semana": 46,
+     "corte": "2026-11-07",
+     "cierre": "2026-11-14",
+     "archivo": "Claveles_S46_plan.xlsx",
+     "acts": [
+      [
+       "CL-01",
+       "Muros de contención de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "ml",
+       "2026-10-19",
+       "2026-11-12",
+       180,
+       150,
+       10,
+       "",
+       "",
+       "",
+       "",
+       "Cuadrilla completa, avance normal"
+      ],
+      [
+       "CL-02",
+       "Acero de losa de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "t",
+       "2026-11-04",
+       "2026-11-11",
+       8,
+       3,
+       1,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-03",
+       "Encofrado de losa de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "m2",
+       "2026-11-04",
+       "2026-11-13",
+       420,
+       180,
+       60,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-04",
+       "Vaciado de losa de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "m3",
+       "2026-11-14",
+       "2026-11-14",
+       75,
+       0,
+       75,
+       "CL-02|CL-03",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-05",
+       "Armado de columnas 1er nivel torre 1",
+       "Torre 1",
+       "Ing. Producción",
+       "und",
+       "2026-11-02",
+       "2026-11-10",
+       20,
+       14,
+       2,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-06",
+       "Habilitado de acero en patio",
+       "Patio",
+       "Logística",
+       "t",
+       "2026-11-02",
+       "2026-11-21",
+       16,
+       9,
+       "",
+       "",
+       "",
+       "",
+       "",
+       "Falta confirmar rendimiento de campo"
+      ],
+      [
+       "CL-07",
+       "Vigas de cimentación",
+       "Cimentación",
+       "Ing. Producción",
+       "m3",
+       "2026-11-02",
+       "2026-11-06",
+       40,
+       40,
+       10,
+       "",
+       "",
+       "",
+       "2026-11-05",
+       "Actividad concluida"
+      ],
+      [
+       "CL-08",
+       "Ensayo de probetas f'c 210 a 28 días",
+       "Calidad",
+       "Laboratorio",
+       "und",
+       "2026-11-10",
+       "2026-11-13",
+       1,
+       0,
+       1,
+       "",
+       "Resultado de laboratorio GeoTest",
+       "2026-11-10",
+       "",
+       ""
+      ],
+      [
+       "CL-09",
+       "Muro perimétrico de patio",
+       "Patio",
+       "Ing. Producción",
+       "m",
+       "2026-11-09",
+       "2026-11-14",
+       60,
+       0,
+       12,
+       "",
+       "Permiso municipal para ocupar vereda",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-10",
+       "Instalaciones sanitarias colgadas de sótano",
+       "Sótano",
+       "Subcontrata IISS",
+       "ml",
+       "2026-11-16",
+       "2026-11-20",
+       120,
+       0,
+       30,
+       "CL-04",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-11",
+       "Armado de columnas 2do nivel torre 1",
+       "Torre 1",
+       "Ing. Producción",
+       "und",
+       "2026-11-12",
+       "2026-11-21",
+       20,
+       0,
+       4,
+       "CL-05",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-12",
+       "Montaje de grúa torre",
+       "Torre 1",
+       "Equipos",
+       "und",
+       "2026-11-10",
+       "2026-11-13",
+       1,
+       0,
+       0.25,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "CL-13",
+       "Tarrajeo de muros de sótano",
+       "Sótano",
+       "Ing. Producción",
+       "m2",
+       "2026-11-23",
+       "2026-12-09",
+       300,
+       0,
+       30,
+       "CL-01",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ],
+     "partes": [
+      [
+       "CL-01",
+       "2026-11-09",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-10",
+       10,
+       ""
+      ],
+      [
+       "CL-01",
+       "2026-11-11",
+       10,
+       "Muros de contención concluidos"
+      ],
+      [
+       "CL-02",
+       "2026-11-09",
+       0,
+       "Falta acero por entrega atrasada del proveedor"
+      ],
+      [
+       "CL-02",
+       "2026-11-10",
+       0,
+       ""
+      ],
+      [
+       "CL-02",
+       "2026-11-12",
+       1,
+       "Llegó parte del acero; se reinicia el habilitado"
+      ],
+      [
+       "CL-02",
+       "2026-11-13",
+       1,
+       ""
+      ],
+      [
+       "CL-02",
+       "2026-11-14",
+       1,
+       ""
+      ],
+      [
+       "CL-03",
+       "2026-11-09",
+       60,
+       ""
+      ],
+      [
+       "CL-03",
+       "2026-11-10",
+       40,
+       "Faltan 2 encofradores; se pidió refuerzo"
+      ],
+      [
+       "CL-03",
+       "2026-11-11",
+       60,
+       ""
+      ],
+      [
+       "CL-03",
+       "2026-11-12",
+       60,
+       ""
+      ],
+      [
+       "CL-03",
+       "2026-11-13",
+       20,
+       ""
+      ],
+      [
+       "CL-04",
+       "2026-11-14",
+       0,
+       "No se puede vaciar hasta terminar el acero de la losa"
+      ],
+      [
+       "CL-05",
+       "2026-11-09",
+       2,
+       "Cuadrilla de armadores incompleta: 3 operarios ausentes"
+      ],
+      [
+       "CL-05",
+       "2026-11-10",
+       2,
+       ""
+      ],
+      [
+       "CL-05",
+       "2026-11-11",
+       2,
+       ""
+      ],
+      [
+       "CL-06",
+       "2026-11-10",
+       1.5,
+       ""
+      ],
+      [
+       "CL-06",
+       "2026-11-12",
+       1.5,
+       ""
+      ],
+      [
+       "CL-08",
+       "2026-11-10",
+       1,
+       "Resultado a 28 días: 214 kg/cm², conforme"
+      ],
+      [
+       "CL-09",
+       "2026-11-12",
+       0,
+       "Municipalidad aún no emite autorización para ocupar la vereda"
+      ],
+      [
+       "CL-11",
+       "2026-11-12",
+       4,
+       ""
+      ],
+      [
+       "CL-11",
+       "2026-11-13",
+       4,
+       ""
+      ],
+      [
+       "CL-11",
+       "2026-11-14",
+       4,
+       ""
+      ],
+      [
+       "CL-12",
+       "2026-11-11",
+       0,
+       "Grúa torre en mantenimiento correctivo; el proveedor envía técnico el lunes"
+      ]
+     ],
+     "repro": {},
+     "aprobar": null
+    }
+   ]
+  },
+  {
+   "codigo": "VAN",
+   "nombre": "Vía Andina · Tramo 1",
+   "cliente": "Gobierno local ficticio (demo)",
+   "ubicacion": "Arequipa, Perú",
+   "etapa": "Movimiento de tierras y drenaje",
+   "dias": "1,2,3,4,5",
+   "feriados": "2026-12-08,2026-12-25",
+   "umbral": 2,
+   "cortes": [
+    {
+     "semana": 46,
+     "corte": "2026-11-07",
+     "cierre": "2026-11-14",
+     "archivo": "ViaAndina_S46_plan.csv",
+     "acts": [
+      [
+       "VA-01",
+       "Excavación de zanja tramo km 0+000-0+400",
+       "Km 0",
+       "Ing. Producción",
+       "m3",
+       "2026-11-02",
+       "2026-11-13",
+       800,
+       520,
+       60,
+       "",
+       "",
+       "",
+       "",
+       "Material pendiente de compra: tubería de drenaje"
+      ],
+      [
+       "VA-02",
+       "Base granular tramo 1",
+       "Km 0",
+       "Ing. Producción",
+       "m3",
+       "2026-11-09",
+       "2026-11-20",
+       400,
+       0,
+       80,
+       "VA-01",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "VA-03",
+       "Alcantarilla TMC km 0+250",
+       "Km 0",
+       "Ing. Producción",
+       "und",
+       "2026-11-04",
+       "2026-11-12",
+       3,
+       1,
+       1,
+       "",
+       "",
+       "",
+       "",
+       "Falta personal mano de obra"
+      ],
+      [
+       "VA-04",
+       "Señalización vertical",
+       "Km 1",
+       "Ing. Producción",
+       "und",
+       "2026-11-09",
+       "2026-11-27",
+       40,
+       0,
+       8,
+       "",
+       "Permiso municipal",
+       "",
+       "",
+       "Permiso municipal sin autorización"
+      ],
+      [
+       "VA-05",
+       "Imprimación asfáltica tramo 1",
+       "Km 0",
+       "Ing. Producción",
+       "m2",
+       "2026-11-23",
+       "2026-11-27",
+       3000,
+       0,
+       1000,
+       "VA-02",
+       "",
+       "",
+       "",
+       ""
+      ],
+      [
+       "VA-06",
+       "Cunetas revestidas",
+       "Km 1",
+       "Ing. Producción",
+       "ml",
+       "2026-11-02",
+       "2026-11-30",
+       600,
+       150,
+       30,
+       "",
+       "",
+       "",
+       "",
+       ""
+      ]
+     ],
+     "partes": [],
+     "repro": {},
+     "aprobar": null
+    }
+   ]
+  }
+ ]
+}

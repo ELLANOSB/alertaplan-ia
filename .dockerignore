@@ -1,0 +1,5 @@
+.env
+storage
+.git
+*.mp4
+.DS_Store

@@ -1,0 +1,815 @@
+{
+    "generado": "2026-11-11 00:46",
+    "entorno": {
+        "php": "8.3.32",
+        "bd": "8.4.11",
+        "ia": "Clasificador local Naive Bayes (sin internet)"
+    },
+    "motor": {
+        "casos": [
+            {
+                "id": "T1",
+                "nombre": "A tiempo: resta 2 días, margen 3 > umbral 2",
+                "esperado": "verde · 11\/11",
+                "obtenido": "verde · 2026-11-11",
+                "ok": true
+            },
+            {
+                "id": "T2",
+                "nombre": "Cruza la semana pero cumple su fin",
+                "esperado": "verde y continúa=sí (no rojo automático)",
+                "obtenido": "verde · continúa=sí",
+                "ok": true
+            },
+            {
+                "id": "T3",
+                "nombre": "Atraso proyectado: resta 6 días y vencen en 4",
+                "esperado": "rojo · margen −2 laborables · 17\/11",
+                "obtenido": "rojo · margen -2 · 2026-11-17",
+                "ok": true
+            },
+            {
+                "id": "T4",
+                "nombre": "Poco margen (rendimiento justo): vigilar",
+                "esperado": "amarillo · margen 1",
+                "obtenido": "amarillo · margen 1",
+                "ok": true
+            },
+            {
+                "id": "T5a",
+                "nombre": "Predecesora pendiente desplaza a la sucesora (FC)",
+                "esperado": "P fin 12\/11 → S inicia 13\/11 y termina 16\/11",
+                "obtenido": "P 2026-11-12 → S 2026-11-16",
+                "ok": true
+            },
+            {
+                "id": "T5b",
+                "nombre": "Predecesora bloqueada sin liberación",
+                "esperado": "P y S naranja",
+                "obtenido": "naranja \/ naranja",
+                "ok": true
+            },
+            {
+                "id": "T6",
+                "nombre": "Sin rendimiento: no se proyecta",
+                "esperado": "gris, sin fecha",
+                "obtenido": "gris · sin fecha",
+                "ok": true
+            },
+            {
+                "id": "T8",
+                "nombre": "PPC 100 % no oculta un atraso fuera del compromiso",
+                "esperado": "PPC 100 y una actividad roja",
+                "obtenido": "PPC 100 · L rojo",
+                "ok": true
+            },
+            {
+                "id": "X1",
+                "nombre": "Feriado 08\/12 no cuenta como día laborable",
+                "esperado": "07\/12 y 09\/12 → fin 09\/12",
+                "obtenido": "2026-12-09",
+                "ok": true
+            },
+            {
+                "id": "X2",
+                "nombre": "Ciclo de dependencias",
+                "esperado": "ambas gris con \"Ciclo\"",
+                "obtenido": "Ciclo de dependencias",
+                "ok": true
+            },
+            {
+                "id": "X3",
+                "nombre": "ID duplicado",
+                "esperado": "gris \"ID duplicado\"",
+                "obtenido": "ID duplicado",
+                "ok": true
+            },
+            {
+                "id": "X4",
+                "nombre": "Fin real posterior al cierre",
+                "esperado": "gris",
+                "obtenido": "Fin real inválido o posterior al cierre",
+                "ok": true
+            },
+            {
+                "id": "X5",
+                "nombre": "Terminada tarde con fin real",
+                "esperado": "azul · atraso +2",
+                "obtenido": "azul · 2",
+                "ok": true
+            },
+            {
+                "id": "X6",
+                "nombre": "Fecha serial de Excel (sistema 1900)",
+                "esperado": "46335 → 2026-11-09",
+                "obtenido": "2026-11-09",
+                "ok": true
+            },
+            {
+                "id": "X7",
+                "nombre": "Calendario lunes-sábado",
+                "esperado": "6 días desde el lunes → sábado 14\/11 · amarillo",
+                "obtenido": "2026-11-14 · amarillo",
+                "ok": true
+            },
+            {
+                "id": "X8",
+                "nombre": "Fecha de datos (último parte) mueve el inicio del restante",
+                "esperado": "inicia 12\/11 → fin 16\/11",
+                "obtenido": "2026-11-16",
+                "ok": true
+            },
+            {
+                "id": "X9",
+                "nombre": "Umbral fuera de rango",
+                "esperado": "excepción",
+                "obtenido": "El margen de vigilancia debe estar entre 0 y 30 días.",
+                "ok": true
+            },
+            {
+                "id": "X10",
+                "nombre": "Ejecutado mayor que el total",
+                "esperado": "gris",
+                "obtenido": "Ejecutado fuera de rango o vacío",
+                "ok": true
+            },
+            {
+                "id": "X11",
+                "nombre": "Restricción con liberación programada",
+                "esperado": "inicia 12\/11 → fin 13\/11",
+                "obtenido": "2026-11-13",
+                "ok": true
+            },
+            {
+                "id": "I1",
+                "nombre": "CSV y XLSX de la misma planificación producen los mismos registros",
+                "esperado": "13 filas iguales",
+                "obtenido": "13 \/ 13 iguales",
+                "ok": true
+            },
+            {
+                "id": "I2",
+                "nombre": "Mapeo automático de los 15 encabezados",
+                "esperado": "15 campos",
+                "obtenido": "15 campos",
+                "ok": true
+            },
+            {
+                "id": "I3",
+                "nombre": "Archivo con errores se bloquea antes de guardar",
+                "esperado": "3 errores (ID repetido, fecha 31\/02, ejecutado no numérico)",
+                "obtenido": "3: Fila 3: ID E-01 repetido. Fila 4: fecha de inicio no válida ('31\/02\/2026'). Fila 5: ejecutado debe ser numérico.",
+                "ok": true
+            },
+            {
+                "id": "I4",
+                "nombre": "Formato no admitido",
+                "esperado": "rechazo",
+                "obtenido": "Formato no admitido. Use .csv o .xlsx (Excel 2007+).",
+                "ok": true
+            },
+            {
+                "id": "I5",
+                "nombre": "Plantilla de casuísticas (23 casos): cada fila obtiene el estado documentado",
+                "esperado": "23 estados como la guía · PPC 5\/16",
+                "obtenido": "23\/23 · PPC 5\/16",
+                "ok": true
+            }
+        ],
+        "aprobados": 24,
+        "total": 24
+    },
+    "flujo": {
+        "casos": [
+            {
+                "id": "E1",
+                "nombre": "Importar XLSX crea el corte y analiza 13 actividades",
+                "esperado": "13 actividades con estado",
+                "obtenido": "13 con estado",
+                "ok": true
+            },
+            {
+                "id": "E2",
+                "nombre": "Parte diario suma avance, fija fecha de datos y recalcula",
+                "esperado": "ejecutado 4 · fecha de datos 10\/11",
+                "obtenido": "ejecutado 4.000 · fecha datos 2026-11-10 · proyección 2026-11-13→2026-11-14",
+                "ok": true
+            },
+            {
+                "id": "E3",
+                "nombre": "Rechaza acumulado mayor al metrado",
+                "esperado": "error",
+                "obtenido": "El acumulado (103) superaría el metrado total (8).",
+                "ok": true
+            },
+            {
+                "id": "E4",
+                "nombre": "Aprobación bloqueada con datos pendientes y causas sin decisión",
+                "esperado": "> 0 bloqueos",
+                "obtenido": "17 bloqueos",
+                "ok": true
+            },
+            {
+                "id": "E5",
+                "nombre": "Intento de aprobar con bloqueos",
+                "esperado": "rechazado",
+                "obtenido": "Aprobación bloqueada: 17 pendiente(s). CL-06: datos por corregir (Falta rendimiento positi",
+                "ok": true
+            },
+            {
+                "id": "E6",
+                "nombre": "Corregir rendimiento saca la actividad de \"revisar datos\"",
+                "esperado": "CL-06 deja de ser gris",
+                "obtenido": "verde",
+                "ok": true
+            },
+            {
+                "id": "E7",
+                "nombre": "IA propone causa para cada compromiso incumplido, con cita literal o abstención",
+                "esperado": "3 propuestas, todas con cita verificable",
+                "obtenido": "3\/3 verificables",
+                "ok": true
+            },
+            {
+                "id": "E8",
+                "nombre": "Editar la propuesta IA exige comentario",
+                "esperado": "rechazado",
+                "obtenido": "Al corregir a la IA, explica brevemente por qué (queda en la auditoría).",
+                "ok": true
+            },
+            {
+                "id": "E9",
+                "nombre": "Sin bloqueos tras revisión humana y reprogramación",
+                "esperado": "0 bloqueos",
+                "obtenido": "0 bloqueos",
+                "ok": true
+            },
+            {
+                "id": "E10",
+                "nombre": "Aprobación congela el corte, calcula PPC y guarda snapshot",
+                "esperado": "aprobado · PPC · snapshot",
+                "obtenido": "aprobado · PPC 62.5% (5\/8) · snapshot 14233 B",
+                "ok": true
+            },
+            {
+                "id": "E11",
+                "nombre": "Corte aprobado es inmutable",
+                "esperado": "rechazo",
+                "obtenido": "El corte de la semana 46 ya fue aprobado y es inmutable.",
+                "ok": true
+            },
+            {
+                "id": "T7",
+                "nombre": "Semana siguiente: pendiente con nueva fecha vigente y línea base conservada",
+                "esperado": "CL-02 fin 20\/11, base 11\/11; CL-01 terminada no pasa",
+                "obtenido": "fin 2026-11-20 · base 2026-11-11 · 7 actividades",
+                "ok": true
+            },
+            {
+                "id": "E12",
+                "nombre": "Cada acción queda en la auditoría",
+                "esperado": "≥ 15 eventos (importar, partes, IA, revisiones, aprobación…)",
+                "obtenido": "19 eventos",
+                "ok": true
+            }
+        ],
+        "aprobados": 13,
+        "total": 13
+    },
+    "rendimiento": {
+        "actividades": 5000,
+        "ms": 952.8
+    },
+    "ia": {
+        "validacion_llm": {
+            "casos": [
+                {
+                    "id": "V1",
+                    "nombre": "Salida correcta",
+                    "esperado": "válida",
+                    "obtenido": "válida",
+                    "ok": true
+                },
+                {
+                    "id": "V2",
+                    "nombre": "Cita inventada (no está en la nota)",
+                    "esperado": "rechazada: cita_en_fuente",
+                    "obtenido": "validacion:cita_en_fuente",
+                    "ok": true
+                },
+                {
+                    "id": "V3",
+                    "nombre": "Categoría fuera de la lista",
+                    "esperado": "rechazada",
+                    "obtenido": "validacion:categoria_permitida",
+                    "ok": true
+                },
+                {
+                    "id": "V4",
+                    "nombre": "Confianza fuera de [0,1]",
+                    "esperado": "rechazada",
+                    "obtenido": "validacion:confianza_en_rango",
+                    "ok": true
+                },
+                {
+                    "id": "V5",
+                    "nombre": "JSON incompleto",
+                    "esperado": "rechazada",
+                    "obtenido": "validacion:esquema,validacion:confianza_en_rango,validacion:cita_en_fuente",
+                    "ok": true
+                },
+                {
+                    "id": "V6",
+                    "nombre": "Abstención del LLM (\"sin_dato\" sin cita)",
+                    "esperado": "válida",
+                    "obtenido": "válida",
+                    "ok": true
+                },
+                {
+                    "id": "V7",
+                    "nombre": "LLM válido → se usa su propuesta",
+                    "esperado": "modo claude · materiales",
+                    "obtenido": "claude · materiales",
+                    "ok": true
+                },
+                {
+                    "id": "V8",
+                    "nombre": "LLM con cita inventada → respaldo local",
+                    "esperado": "modo local · materiales",
+                    "obtenido": "local · materiales",
+                    "ok": true
+                },
+                {
+                    "id": "V9",
+                    "nombre": "API caída \/ timeout → respaldo local",
+                    "esperado": "modo local",
+                    "obtenido": "local · materiales",
+                    "ok": true
+                },
+                {
+                    "id": "V10",
+                    "nombre": "Modo manual → no propone",
+                    "esperado": "sin_dato · manual",
+                    "obtenido": "sin_dato · manual",
+                    "ok": true
+                },
+                {
+                    "id": "V11",
+                    "nombre": "Sin observación → no inventa causa",
+                    "esperado": "sin_dato",
+                    "obtenido": "sin_dato",
+                    "ok": true
+                }
+            ],
+            "aprobados": 11,
+            "total": 11
+        },
+        "local": {
+            "eval": {
+                "notas": 30,
+                "notas_con_causa": 27,
+                "aceptadas": 25,
+                "correctas": 25,
+                "abstenciones": 2,
+                "precision": 100,
+                "cobertura": 92.6,
+                "sin_dato_correctos": 3,
+                "sin_dato_total": 3,
+                "detalle": [
+                    {
+                        "nota": "El proveedor de fierro reprogramó el despacho para el lunes",
+                        "esperado": "materiales",
+                        "obtenido": "materiales",
+                        "candidata": "materiales",
+                        "puntaje": 0.834
+                    },
+                    {
+                        "nota": "No llegó el cemento solicitado, almacén sin stock",
+                        "esperado": "materiales",
+                        "obtenido": "materiales",
+                        "candidata": "materiales",
+                        "puntaje": 0.822
+                    },
+                    {
+                        "nota": "Pedido de tubería PVC sigue en compras",
+                        "esperado": "materiales",
+                        "obtenido": "materiales",
+                        "candidata": "materiales",
+                        "puntaje": 0.619
+                    },
+                    {
+                        "nota": "Faltó la entrega de bloquetas desde la ladrillera",
+                        "esperado": "materiales",
+                        "obtenido": "materiales",
+                        "candidata": "materiales",
+                        "puntaje": 0.72
+                    },
+                    {
+                        "nota": "Solo vinieron 3 de los 8 operarios programados",
+                        "esperado": "mano_obra",
+                        "obtenido": "mano_obra",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.697
+                    },
+                    {
+                        "nota": "La cuadrilla de electricistas fue reasignada a la torre B",
+                        "esperado": "mano_obra",
+                        "obtenido": "mano_obra",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.632
+                    },
+                    {
+                        "nota": "Ausentismo alto del personal de encofrado el jueves",
+                        "esperado": "mano_obra",
+                        "obtenido": "mano_obra",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.808
+                    },
+                    {
+                        "nota": "Subcontratista de drywall no envió trabajadores",
+                        "esperado": "mano_obra",
+                        "obtenido": "mano_obra",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.601
+                    },
+                    {
+                        "nota": "Supervisión aún no aprueba el plano de detalle de escaleras",
+                        "esperado": "ingenieria",
+                        "obtenido": "ingenieria",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.919
+                    },
+                    {
+                        "nota": "RFI de instalaciones sanitarias sin respuesta del proyectista",
+                        "esperado": "ingenieria",
+                        "obtenido": "ingenieria",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.831
+                    },
+                    {
+                        "nota": "Falta licencia municipal para ocupar la vereda",
+                        "esperado": "ingenieria",
+                        "obtenido": "ingenieria",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.525
+                    },
+                    {
+                        "nota": "Incompatibilidad de cotas entre arquitectura y estructuras",
+                        "esperado": "ingenieria",
+                        "obtenido": "ingenieria",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.509
+                    },
+                    {
+                        "nota": "La prueba hidráulica falló y hay que rehacer uniones",
+                        "esperado": "calidad",
+                        "obtenido": "calidad",
+                        "candidata": "calidad",
+                        "puntaje": 0.859
+                    },
+                    {
+                        "nota": "Supervisión rechazó el tarrajeo por desplome",
+                        "esperado": "calidad",
+                        "obtenido": "calidad",
+                        "candidata": "calidad",
+                        "puntaje": 0.588
+                    },
+                    {
+                        "nota": "Resultado de probetas a 7 días por debajo de lo esperado",
+                        "esperado": "calidad",
+                        "obtenido": "sin_dato",
+                        "candidata": "calidad",
+                        "puntaje": 0.406
+                    },
+                    {
+                        "nota": "Se detectaron fisuras en el muro y se debe reparar",
+                        "esperado": "calidad",
+                        "obtenido": "calidad",
+                        "candidata": "calidad",
+                        "puntaje": 0.836
+                    },
+                    {
+                        "nota": "Lluvia intensa obligó a suspender el vaciado",
+                        "esperado": "clima",
+                        "obtenido": "clima",
+                        "candidata": "clima",
+                        "puntaje": 0.915
+                    },
+                    {
+                        "nota": "Vientos fuertes impidieron el izaje con grúa",
+                        "esperado": "clima",
+                        "obtenido": "clima",
+                        "candidata": "clima",
+                        "puntaje": 0.921
+                    },
+                    {
+                        "nota": "Garúa toda la mañana, la fachada quedó húmeda",
+                        "esperado": "clima",
+                        "obtenido": "clima",
+                        "candidata": "clima",
+                        "puntaje": 0.883
+                    },
+                    {
+                        "nota": "Neblina impidió trabajar en altura en la fachada",
+                        "esperado": "clima",
+                        "obtenido": "clima",
+                        "candidata": "clima",
+                        "puntaje": 0.872
+                    },
+                    {
+                        "nota": "La bomba de concreto se averió a media jornada",
+                        "esperado": "equipos",
+                        "obtenido": "equipos",
+                        "candidata": "equipos",
+                        "puntaje": 0.838
+                    },
+                    {
+                        "nota": "Montacargas en mantenimiento correctivo",
+                        "esperado": "equipos",
+                        "obtenido": "sin_dato",
+                        "candidata": "equipos",
+                        "puntaje": 0.458
+                    },
+                    {
+                        "nota": "Excavadora alquilada no llegó por falla mecánica",
+                        "esperado": "equipos",
+                        "obtenido": "equipos",
+                        "candidata": "equipos",
+                        "puntaje": 0.914
+                    },
+                    {
+                        "nota": "Mezcladora malograda, se paró la producción",
+                        "esperado": "equipos",
+                        "obtenido": "equipos",
+                        "candidata": "equipos",
+                        "puntaje": 0.521
+                    },
+                    {
+                        "nota": "No se liberó el frente porque falta desencofrar la losa anterior",
+                        "esperado": "predecesora",
+                        "obtenido": "predecesora",
+                        "candidata": "predecesora",
+                        "puntaje": 0.985
+                    },
+                    {
+                        "nota": "Las instalaciones eléctricas previas siguen pendientes",
+                        "esperado": "predecesora",
+                        "obtenido": "predecesora",
+                        "candidata": "predecesora",
+                        "puntaje": 0.821
+                    },
+                    {
+                        "nota": "La actividad anterior va atrasada y bloquea el inicio",
+                        "esperado": "predecesora",
+                        "obtenido": "predecesora",
+                        "candidata": "predecesora",
+                        "puntaje": 0.964
+                    },
+                    {
+                        "nota": "Se avanzó según lo programado sin novedades",
+                        "esperado": "sin_dato",
+                        "obtenido": "sin_dato",
+                        "candidata": "materiales",
+                        "puntaje": 0.246
+                    },
+                    {
+                        "nota": "Pendiente",
+                        "esperado": "sin_dato",
+                        "obtenido": "sin_dato",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.288
+                    },
+                    {
+                        "nota": "Revisar mañana con el residente",
+                        "esperado": "sin_dato",
+                        "obtenido": "sin_dato",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.302
+                    }
+                ]
+            },
+            "ciega": {
+                "notas": 21,
+                "notas_con_causa": 19,
+                "aceptadas": 7,
+                "correctas": 7,
+                "abstenciones": 12,
+                "precision": 100,
+                "cobertura": 36.8,
+                "sin_dato_correctos": 2,
+                "sin_dato_total": 2,
+                "detalle": [
+                    {
+                        "nota": "Camión de acero quedó retenido en la garita, no hubo descarga",
+                        "esperado": "materiales",
+                        "obtenido": "sin_dato",
+                        "candidata": "materiales",
+                        "puntaje": 0.329
+                    },
+                    {
+                        "nota": "Seguimos esperando las planchas de drywall del proveedor",
+                        "esperado": "materiales",
+                        "obtenido": "sin_dato",
+                        "candidata": "materiales",
+                        "puntaje": 0.301
+                    },
+                    {
+                        "nota": "Tablero eléctrico importado aún en aduana",
+                        "esperado": "materiales",
+                        "obtenido": "sin_dato",
+                        "candidata": "materiales",
+                        "puntaje": 0.295
+                    },
+                    {
+                        "nota": "El maestro de obra llevó a sus operarios a otra obra",
+                        "esperado": "mano_obra",
+                        "obtenido": "sin_dato",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.49
+                    },
+                    {
+                        "nota": "Faltaron soldadores certificados en el turno tarde",
+                        "esperado": "mano_obra",
+                        "obtenido": "sin_dato",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.426
+                    },
+                    {
+                        "nota": "Paro de construcción civil, asistencia mínima",
+                        "esperado": "mano_obra",
+                        "obtenido": "mano_obra",
+                        "candidata": "mano_obra",
+                        "puntaje": 0.561
+                    },
+                    {
+                        "nota": "Proyectista no absuelve la consulta sobre el refuerzo de vigas",
+                        "esperado": "ingenieria",
+                        "obtenido": "ingenieria",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.668
+                    },
+                    {
+                        "nota": "Municipalidad no emite autorización para corte de calle",
+                        "esperado": "ingenieria",
+                        "obtenido": "sin_dato",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.402
+                    },
+                    {
+                        "nota": "Cliente cambió el acabado de pisos, falta plano nuevo",
+                        "esperado": "ingenieria",
+                        "obtenido": "ingenieria",
+                        "candidata": "ingenieria",
+                        "puntaje": 0.836
+                    },
+                    {
+                        "nota": "Control de calidad observó cangrejeras en columnas, se resanará",
+                        "esperado": "calidad",
+                        "obtenido": "calidad",
+                        "candidata": "calidad",
+                        "puntaje": 0.852
+                    },
+                    {
+                        "nota": "Se rehízo el contrapiso por desnivel",
+                        "esperado": "calidad",
+                        "obtenido": "sin_dato",
+                        "candidata": "calidad",
+                        "puntaje": 0.251
+                    },
+                    {
+                        "nota": "Ensayo de densidad de campo no cumple",
+                        "esperado": "calidad",
+                        "obtenido": "sin_dato",
+                        "candidata": "calidad",
+                        "puntaje": 0.465
+                    },
+                    {
+                        "nota": "Lloviznó en la madrugada y se postergó la pintura exterior",
+                        "esperado": "clima",
+                        "obtenido": "sin_dato",
+                        "candidata": "clima",
+                        "puntaje": 0.356
+                    },
+                    {
+                        "nota": "Vientos de más de 50 km\/h, se detuvo la grúa",
+                        "esperado": "clima",
+                        "obtenido": "clima",
+                        "candidata": "clima",
+                        "puntaje": 0.538
+                    },
+                    {
+                        "nota": "Se malogró el winche y no se pudo subir material",
+                        "esperado": "equipos",
+                        "obtenido": "sin_dato",
+                        "candidata": "equipos",
+                        "puntaje": 0.445
+                    },
+                    {
+                        "nota": "La retroexcavadora quedó sin operador por falla del equipo",
+                        "esperado": "equipos",
+                        "obtenido": "equipos",
+                        "candidata": "equipos",
+                        "puntaje": 0.836
+                    },
+                    {
+                        "nota": "Corte de energía dejó sin funcionar la mezcladora",
+                        "esperado": "equipos",
+                        "obtenido": "sin_dato",
+                        "candidata": "equipos",
+                        "puntaje": 0.421
+                    },
+                    {
+                        "nota": "Estructuras todavía no entrega el piso para albañilería",
+                        "esperado": "predecesora",
+                        "obtenido": "sin_dato",
+                        "candidata": "predecesora",
+                        "puntaje": 0.296
+                    },
+                    {
+                        "nota": "Falta terminar el vaciado del nivel inferior",
+                        "esperado": "predecesora",
+                        "obtenido": "predecesora",
+                        "candidata": "predecesora",
+                        "puntaje": 0.549
+                    },
+                    {
+                        "nota": "Todo normal en el frente",
+                        "esperado": "sin_dato",
+                        "obtenido": "sin_dato",
+                        "candidata": "predecesora",
+                        "puntaje": 0.302
+                    },
+                    {
+                        "nota": "Ver reporte adjunto",
+                        "esperado": "sin_dato",
+                        "obtenido": "sin_dato",
+                        "candidata": null,
+                        "puntaje": 0
+                    }
+                ]
+            }
+        },
+        "lectura": "El conjunto de evaluación se usó para ampliar el corpus (de 13\/30 a 28\/30 aciertos exactos), por eso su resultado es optimista. El conjunto ciego, redactado después y no usado para ajustar, muestra el comportamiento esperado: cuando acepta, acierta; pero se abstiene en muchas notas con vocabulario nuevo y las deriva a la persona. Para subir la cobertura: usar el modo Claude API o ampliar el corpus con notas reales etiquetadas."
+    },
+    "linea_base": {
+        "descripcion": "Predicción hecha con el plan al corte del 07\/11 (sin partes diarios) contra lo que ocurrió al cierre del 14\/11 en la semana 46 de la obra Claveles. \"Tarde\" = no terminó o terminó después de su fin planificado. Se evalúan las actividades con fin planificado dentro de la semana.",
+        "evaluadas": 8,
+        "tarde_real": [
+            "CL-02",
+            "CL-04",
+            "CL-05",
+            "CL-09",
+            "CL-12"
+        ],
+        "metodos": [
+            {
+                "nombre": "Regla reactiva: fin planificado anterior al corte y sin terminar",
+                "r": {
+                    "detecta": 0,
+                    "vp": 0,
+                    "fp": 0,
+                    "fn": 5,
+                    "recall": 0,
+                    "precision": null,
+                    "marcadas": []
+                }
+            },
+            {
+                "nombre": "Motor: solo \"Atraso probable\" (rojo)",
+                "r": {
+                    "detecta": 2,
+                    "vp": 2,
+                    "fp": 0,
+                    "fn": 3,
+                    "recall": 40,
+                    "precision": 100,
+                    "marcadas": [
+                        "CL-02",
+                        "CL-05"
+                    ]
+                }
+            },
+            {
+                "nombre": "Motor: rojo + bloqueada + vigilar (requiere atención)",
+                "r": {
+                    "detecta": 7,
+                    "vp": 5,
+                    "fp": 2,
+                    "fn": 0,
+                    "recall": 100,
+                    "precision": 71.4,
+                    "marcadas": [
+                        "CL-01",
+                        "CL-02",
+                        "CL-03",
+                        "CL-04",
+                        "CL-05",
+                        "CL-09",
+                        "CL-12"
+                    ]
+                }
+            }
+        ],
+        "lectura": "Datos ficticios diseñados por el equipo: la comparación ilustra el método de validación, no prueba desempeño en obra real. Debe repetirse con cortes reales anonimizados."
+    }
+}

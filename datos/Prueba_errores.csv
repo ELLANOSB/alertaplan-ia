@@ -1,0 +1,5 @@
+﻿"ID";"Actividad";"Sector";"Responsable";"Unidad";"Inicio";"Fin";"Total";"Ejecutado";"Rendimiento";"Predecesoras";"Restriccion";"Liberacion";"Fin real";"Observacion"
+"E-01";"Fila correcta";"S";"Ing. Producción";"m2";"2026-11-16";"2026-11-20";"100";"10";"20";"";"";"";"";""
+"E-01";"ID repetido";"S";"Ing. Producción";"m2";"2026-11-16";"2026-11-20";"100";"10";"20";"";"";"";"";""
+"E-03";"Fecha inválida";"S";"Ing. Producción";"m2";"31/02/2026";"2026-11-20";"100";"10";"20";"";"";"";"";""
+"E-04";"Ejecutado no numérico";"S";"Ing. Producción";"m2";"2026-11-16";"2026-11-20";"100";"diez";"20";"";"";"";"";""
